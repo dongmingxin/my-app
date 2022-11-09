@@ -36,7 +36,7 @@ interface ILayout extends StyledComponentBase<any, {}> {
 
 const Layout:ILayout = styled.div`
     font-size: 15px;
-    background-color: ${props => props.theme.primaryColor};
+    background-color: ${props => props.theme.backgroundColor};
     z-index: -10;
     display: flex;
     flex-direction: column;
