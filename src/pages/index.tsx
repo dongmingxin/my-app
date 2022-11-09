@@ -175,7 +175,7 @@ const Home = ():JSX.Element => {
                 <AboutMeTitle>About <span>Me</span></AboutMeTitle>
                 <AboutMeIntroduction>
                   2 years of front-end and back-end development experience. delivered large projects for 
-                  finance and commercial clients, I'm a motivated and enthusiastic developer, proficient in using 
+                  finance and commercial clients, I am a motivated and enthusiastic developer, proficient in using 
                   Node.js and React.js for web development, I honed my abilities in JavaScript and software best 
                   practices assurance, always adhere to the principles of Readable, Maintainable, and Reusable 
                   for coding
