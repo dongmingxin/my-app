@@ -2,9 +2,12 @@ import * as React from "react";
 import { createContext, useContext, useState, useEffect } from "react";
 
 interface ThemeProps {
-    backgroundColor: string;
-    textColor: string;
-    textHighlightColor: string;
+    backgroundColor: string,
+    mobileNavBgColor: string,
+    primaryColor: string,
+    textColorPrimary: string,
+    textColorSecondary: string,
+    textColorInBackGround: string
 }
 
 interface ThemeProviderProps {
@@ -18,20 +21,31 @@ export interface ThemeContextInterface {
     themeProps: ThemeProps
 }
 
-export const ThemeContext = createContext<ThemeContextInterface | null>(null);
-const { Provider } = ThemeContext;
 const themeLocalStorageKey = 'theme'
 const defaultTheme = 'light'
 const darkTheme = {
     backgroundColor: '#23272f',
-    textColor: '#fff',
-    textHighlightColor: '#149eca'
+    mobileNavBgColor: '#303030',
+    primaryColor: '#9999ff',
+    textColorPrimary: '#999',
+    textColorSecondary: '#9999ff',
+    textColorInBackGround: '#E7E6DD',
 }
 const lightTheme = {
     backgroundColor: '#f5f5f5',
-    textColor: '#1c1e21',
-    textHighlightColor: '#2eca7f'
+    mobileNavBgColor: '#f2f6fc',
+    primaryColor: '#2eca7f',
+    textColorPrimary: '#49515D',
+    textColorSecondary: '2eca7f',
+    textColorInBackGround: '#E7E6DD',
 }
+
+export const ThemeContext = createContext<ThemeContextInterface>({
+    theme: 'light',
+    changeTheme: (theme: 'dark'|'light')=>{},
+    themeProps: lightTheme 
+});
+const { Provider } = ThemeContext;
 
 
 export const ThemeProvider = ({

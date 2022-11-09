@@ -2,20 +2,29 @@ import React from 'react'
 import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
 import { baseURL } from '../../services/axios'
-import Layout from '../../components/layout/layout'
-import TopNav from '../../components/navigation/TopNav'
 import styled from 'styled-components'
 import Card from '../../components/card/Card'
-import BlogCard from '../../components/blogCard/BlogCard';
-import ProfileCard from '../../components/profileCard/ProfileCard';
+import BlogCard from '../../components/blogCard/BlogCard'
+import ProfileCard from '../../components/profileCard/ProfileCard'
+import { DefaultLayout } from '../../components/layout/layout'
 
-const Body = styled.div`
+const Container = styled.div`
   width: 100%;
   display: grid;
   grid-template-areas:
 		'blogs-wrapper blogs-wrapper blogs-wrapper profile'
 		'blogs-wrapper blogs-wrapper blogs-wrapper recent-update'
     'blogs-wrapper blogs-wrapper blogs-wrapper .';
+  @media screen and (max-width: 992px) {
+    grid-template-areas:
+      'blogs-wrapper';
+    .profile{
+      display: none;
+    }
+    .recent-update{
+      display: none;
+    }
+  }
   grid-gap: 15px;
   .blogs-wrapper {
     grid-area: blogs-wrapper;
@@ -24,6 +33,9 @@ const Body = styled.div`
       grid-template-columns: 1fr 1fr 1fr;
       padding: 15px;
       grid-gap: 25px 15px;
+      @media screen and (max-width: 992px) {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
   .profile {
@@ -50,36 +62,33 @@ type blog = {
 const Blogs = ({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   
   return (
-    <Layout>
-        <Layout.Container>
-            <TopNav/>
-            <Body>
-              <Card className='blogs-wrapper'>
-                <Card.Header>All Blogs</Card.Header>
-                <div className='blogs'>
-                  {blogs.map((blog:blog)=>(
-                    <BlogCard 
-                      imageSrc={blog.image} 
-                      title={blog.title}
-                      id={blog._id}
-                      date={blog.date}
-                      key={blog._id}
-                    />
-                  ))}
-                </div>
-              </Card>
-              <ProfileCard className='profile'/>
-              <Card className='recent-update'>
-                <Card.Header>最新文章</Card.Header>
-                <div className='update-blog'>Turbopack似乎并没有那么牛</div>
-                <div className='update-blog'>校验二叉树的后序遍历序列</div>
-                <div className='update-blog'>Xcode配置GitHub</div>
-                <div className='update-blog'>深入理解New操作符</div>
-                <div className='update-blog'>字符串转树结构</div>
-              </Card>
-            </Body>
-        </Layout.Container>
-    </Layout>
+    <DefaultLayout>
+      <Container>
+        <Card className='blogs-wrapper'>
+          <Card.Header>All Blogs</Card.Header>
+          <div className='blogs'>
+            {blogs.map((blog:blog)=>(
+              <BlogCard 
+                imageSrc={blog.image} 
+                title={blog.title}
+                id={blog._id}
+                date={blog.date}
+                key={blog._id}
+              />
+            ))}
+          </div>
+        </Card>
+        <ProfileCard className='profile'/>
+        <Card className='recent-update'>
+          <Card.Header>最新文章</Card.Header>
+          <div className='update-blog'>Turbopack似乎并没有那么牛</div>
+          <div className='update-blog'>校验二叉树的后序遍历序列</div>
+          <div className='update-blog'>Xcode配置GitHub</div>
+          <div className='update-blog'>深入理解New操作符</div>
+          <div className='update-blog'>字符串转树结构</div>
+        </Card>
+      </Container>
+    </DefaultLayout>
   )
 }
 

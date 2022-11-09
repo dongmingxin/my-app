@@ -1,7 +1,5 @@
-import { useRouter } from 'next/router'
-import styled from 'styled-components';
-import Layout from '../../components/layout/layout'
-import TopNav from '../../components/navigation/TopNav'
+import styled from 'styled-components'
+import { DefaultLayout } from '../../components/layout/layout'
 import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
 import { baseURL } from '../../services/axios'
@@ -43,15 +41,12 @@ type Props = {
 
 const Blog = ({ blog }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
     return (
-        <Layout>
-            <Layout.Container>
-                <TopNav/>
-                <BlogWrapper>
-                    <Title>{blog?.title}</Title>
-                    <Content dangerouslySetInnerHTML={{ __html: blog?.content }} />
-                </BlogWrapper>
-            </Layout.Container>
-        </Layout>    
+        <DefaultLayout>
+            <BlogWrapper>
+                <Title>{blog?.title}</Title>
+                <Content dangerouslySetInnerHTML={{ __html: blog?.content }} />
+            </BlogWrapper>   
+        </DefaultLayout>
     )
 }
 

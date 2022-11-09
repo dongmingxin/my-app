@@ -15,12 +15,12 @@ const NavbarContainer = styled.div`
 
 const NavLogo = styled.div`
     font-size: 18px;
-    color: #000;
+    color: ${props => props.theme.textColorPrimary};
     font-weight: 500;
 `;
 
 const NavlogoSpan = styled.span`
-    color: #2eca7f;
+    color: ${props => props.theme.primaryColor};
 `
 
 const NavLinks = styled.div`
@@ -28,7 +28,7 @@ const NavLinks = styled.div`
     .navlink {
         text-decoration: none;
         padding: 0px 40px 0px 40px;
-        color: #49515D;
+        color: ${props => props.theme.textColorPrimary};
         font-weight: bold;
         opacity: 0.6;
         position: relative;
@@ -40,7 +40,7 @@ const NavLinks = styled.div`
                 position: absolute;
                 width: 30px;
                 height: 3px;
-                background-color: #2eca7f;
+                background-color: ${props => props.theme.primaryColor};
                 top: 22px;
                 right: 38%;
                 }

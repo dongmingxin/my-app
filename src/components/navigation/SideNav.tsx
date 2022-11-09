@@ -12,7 +12,7 @@ const TopBarContainer = styled.div`
 	top: 0;
 	right: 0;
 	height: 50px;
-	background-color: #fff;
+	background-color: ${props => props.theme.backgroundColor};
 	box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
 	transform: translateY(-100%);
 	transition: 0.35s cubic-bezier(0.8, 1, 0.8, 1);
@@ -50,6 +50,8 @@ const SideNavContainer = styled.div`
 		padding: 18px 15px;
 		box-sizing: border-box;
 		transform: translateY(-20%);
+		background-color: ${props => props.theme.backgroundColor};
+		color:${props => props.theme.textColorPrimary};
 		grid-template-areas:
 		'photo name'
 		'photo slog';
@@ -67,16 +69,16 @@ const SideNavContainer = styled.div`
 		.slog {
 			grid-area: slog;
 			font-size: 12px;
-			color:#606266;
 		}
 	}
 	.linksWrapper {
 		width: 80%;
+		background-color: ${props => props.theme.backgroundColor};
 		.navlink {
 			width: 100%;
 			text-align: center;
 			padding: 20px 10px;
-			color: #49515D;
+			color: ${props => props.theme.textColorPrimary};;
 			font-weight: bold;
 			opacity: 0.6;
 			box-sizing: border-box;

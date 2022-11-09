@@ -9,7 +9,7 @@ const DrawerWrapper = styled.div`
   width: 78%;
   height: 100%;
   min-height: 100vh;
-  background-color: #f2f6fc;
+  background-color: ${props => props.theme.mobileNavBgColor};
   transform: translateX(-101%);
   z-index: 150;
   transition: transform 0.35s cubic-bezier(0.8, 1, 0.8, 1);

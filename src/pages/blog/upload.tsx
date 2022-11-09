@@ -1,17 +1,9 @@
-import React, { useState } from 'react'
-import Layout from '../../components/layout/layout'
-import TopNav from '../../components/navigation/TopNav'
+import React from 'react'
 import Quill from '../../components/quill/Quill'
-import { postBlog } from '../../services/blog';
-import SimpleSnackbar from '../../components/snackbar/Snackbar';
+import { postBlog } from '../../services/blog'
+import { DefaultLayout } from '../../components/layout/layout'
 
 const Upload = () => {
-
-  const [snakeBarOpen, setSnakeBarOpen] = useState(false);
-
-  const handleClose = () => {
-    setSnakeBarOpen(false);
-  };
 
   const handleUpload = async() => {
 
@@ -25,31 +17,16 @@ const Upload = () => {
         content
       }
     }
-
-    try {
-      const result = await postBlog(blogData);
-      return result
-    } catch (error) {
-      console.log('loged')
-      setSnakeBarOpen(true)
-    }
-
+    
+    await postBlog(blogData);
 
   }
   return (
-    <Layout>
-      <SimpleSnackbar
-        status={snakeBarOpen}
-        onClose={handleClose}
-        message='Title and Content can not be empty'
+    <DefaultLayout>
+      <Quill 
+        onUpload={handleUpload}
       />
-        <Layout.Container>
-            <TopNav/>
-            <Quill 
-              onUpload={handleUpload}
-            />
-        </Layout.Container>
-    </Layout>
+    </DefaultLayout>
   )
 }
 

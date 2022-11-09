@@ -1,21 +1,21 @@
 import React, { Fragment } from 'react';
-import Layout from '../../components/layout/layout';
-import TopNav from '../../components/navigation/TopNav';
 import styled from "styled-components";
 import getResumeInfo from "../../data/resume";
 import { Iexperience } from '../../interfaces/experience';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
+import { DefaultLayout } from '../../components/layout/layout';
 
 const ResumeWrapper = styled.div`
   /* padding: 10px 0 0 0; */
+  color: ${props => props.theme.textColorPrimary};
 `
 const ExperienceHeader = styled.div`
-  background-color: #2eca7f;
+  background-color: ${props => props.theme.primaryColor};
   height: 50px;
   text-align: left;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: ${props => props.theme.textColorInBackGround};
   font-weight: 600;
   font-size: 24px;
   text-indent:2em;
@@ -31,7 +31,7 @@ const Highlight = styled.div`
 `
 
 const HightlightTtitle = styled.div`
-  color: #2eca7f;
+  color: ${props => props.theme.primaryColor};
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -39,14 +39,14 @@ const HightlightTtitle = styled.div`
 `
 const HightlightFont = styled.div`
   padding: 0 0 0 10px;
-  color: black;
+  color: ${props => props.theme.textColorPrimary};
 `
 
 const HeightlightListBorder = styled.div`
   padding: 0 0 0 10px;
 `
 const HightLightList = styled.ul`
-  border-left: 2px solid #2eca7f;
+  border-left: 2px solid ${props => props.theme.textColorPrimary};
   list-style-type: none;
 `
 const HightLightListItem = styled.li`
@@ -64,6 +64,7 @@ const ProjectImg = styled.img`
 const Link = styled.a`
   cursor: 'pointer';
   text-decoration: none;
+  color: ${props => props.theme.textColorPrimary};
 `;
   
 const Resume = ():JSX.Element => {
@@ -119,17 +120,13 @@ const Resume = ():JSX.Element => {
       ))
     )
   }
-
-
+  
   return (
-    <Layout>
-      <Layout.Container>
-        <TopNav/>
-        <ResumeWrapper>
-          {renderResume()}
-        </ResumeWrapper>
-      </Layout.Container>
-    </Layout>
+    <DefaultLayout>
+      <ResumeWrapper>
+        {renderResume()}
+      </ResumeWrapper>
+    </DefaultLayout>
   )
 }
 

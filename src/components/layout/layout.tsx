@@ -1,4 +1,7 @@
-import styled, { StyledComponentBase } from "styled-components";
+import styled, { StyledComponentBase, ThemeProvider } from "styled-components"
+import { useThemeContext } from '../../context/theme'
+import TopNav from '../navigation/TopNav'
+import DarkLightModeBtn from '../darkLightModeBtn/DarkLightModeBtn'
 
 /**
  * // Media queries breakpoints
@@ -33,15 +36,14 @@ interface ILayout extends StyledComponentBase<any, {}> {
 
 const Layout:ILayout = styled.div`
     font-size: 15px;
-    background-color: ${props => props.theme.backgroundColor 
-        ? props.theme.backgroundColor
-        :'#f5f5f5'
-    };
+    background-color: ${props => props.theme.primaryColor};
     z-index: -10;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
+    position: absolute;
 `;
 
 
@@ -67,7 +69,28 @@ const Container = styled.div`
         width: 100%;
     }
 `
-
 Layout.Container = Container;
+
+interface DefaultLayoutProps {
+	children?: React.ReactNode;
+}
+
+export const DefaultLayout = ({
+    children
+} : DefaultLayoutProps) => {
+    const { themeProps } = useThemeContext();
+    return (
+        <ThemeProvider theme={themeProps}>
+            <Layout>
+                <DarkLightModeBtn/>
+                <Layout.Container>
+                    <TopNav/>
+                    {children}
+                </Layout.Container>
+            </Layout>
+        </ThemeProvider>
+    )
+}
+
 
 export default Layout;
