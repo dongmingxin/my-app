@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetStaticProps } from 'next'
+import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
 import Layout from '../../components/layout/layout'
 import TopNav from '../../components/navigation/TopNav'
@@ -46,12 +46,8 @@ type blog = {
   _v: number
 }
 
-type Props = {
-  blogs: Array<blog>
-}
-
-const Blogs = ({ blogs }: Props) => {
-
+const Blogs = ({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  
   return (
     <Layout>
         <Layout.Container>
@@ -88,13 +84,14 @@ const Blogs = ({ blogs }: Props) => {
 
 export default Blogs;
 
-export const getStaticProps:GetStaticProps<Props> = async () => {
+export const getServerSideProps = async () => {
 
-  const { data } = await axios.get('http://localhost:3000/api/blog')
+  const { data } = await axios.get('http://localhost:3000/api/blog');
+  const blogs:Array<blog> = data;
 
   return {
     props: {
-      blogs: data
-    }
+      blogs: blogs
+    },
   }
 }

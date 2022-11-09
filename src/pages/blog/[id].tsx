@@ -59,7 +59,6 @@ export default Blog;
 export const getServerSideProps = async (context:any) => {
 
     const { id } = context.query;
-    console.log()
     const { data } = await axios.get(`http://localhost:3000/api/blog/${id}`)
     const blog:Props = data
   
