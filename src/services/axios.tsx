@@ -42,7 +42,9 @@ const codeMessage = (status: number) => {
   return `${message}，请检查网络或联系管理员！`;
 };
 
-export const baseURL = 'http://localhost:3000';
+const { NODE_ENV } = process.env;
+
+export const baseURL = NODE_ENV === 'production' ? 'https://my-app-iota-five.vercel.app/' : 'http://localhost:3000';
 const withCredentials = true;
 const timeout = 30000;
 

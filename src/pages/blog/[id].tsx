@@ -4,6 +4,7 @@ import Layout from '../../components/layout/layout'
 import TopNav from '../../components/navigation/TopNav'
 import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
+import { baseURL } from '../../services/axios'
 
 const BlogWrapper = styled.div`
     background-image: linear-gradient(90deg,rgba(159,219,252,.15) 3%
@@ -59,7 +60,7 @@ export default Blog;
 export const getServerSideProps = async (context:any) => {
 
     const { id } = context.query;
-    const { data } = await axios.get(`http://localhost:3000/api/blog/${id}`)
+    const { data } = await axios.get(`${baseURL}/api/blog/${id}`)
     const blog:Props = data
   
     return {

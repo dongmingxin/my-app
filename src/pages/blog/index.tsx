@@ -1,6 +1,7 @@
 import React from 'react'
 import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
+import { baseURL } from '../../services/axios'
 import Layout from '../../components/layout/layout'
 import TopNav from '../../components/navigation/TopNav'
 import styled from 'styled-components'
@@ -86,7 +87,7 @@ export default Blogs;
 
 export const getServerSideProps = async () => {
 
-  const { data } = await axios.get('http://localhost:3000/api/blog');
+  const { data } = await axios.get(`${baseURL}/api/blog`);
   const blogs:Array<blog> = data;
 
   return {
