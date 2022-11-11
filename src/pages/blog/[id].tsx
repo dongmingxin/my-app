@@ -17,11 +17,13 @@ const Title = styled.h1`
     font-size: 24px;
     text-align: center;
     padding: 0 15px 0 15px;
+    color: ${props => props.theme.textColorSecondary};
 `
 const Content = styled.div`
     padding: 0 15px 0 15px;
     font-size: 16px;
     margin-top: 50px;
+    color: ${props => props.theme.textColorPrimary};
     p {
         display: block;
         margin-block-start: 1em;

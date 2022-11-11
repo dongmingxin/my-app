@@ -55,13 +55,16 @@ const Cicle = styled.div`
     width: 35px;
     height: 35px;
     border: 3px solid;
-    transition: all 0.4s cubic-bezier(0.02, 0.02, 1, 1.02);
+    transition: all 0.5s cubic-bezier(0.7, -0.8, 0.2, 1.71) 0.1s;
     border-color: ${props => props.theme === 'dark' ? '#fffc' : '#ffbf00'};
     box-shadow:0 0 10px;
     color: ${props => props.theme === 'dark' ? '#fffc' : '#ffbf00'};
     border-radius: 50%;
     right: 1px;
     transform: ${props => props.theme === 'dark' ? 'translateX(-105%)' : 'translateX(0%)'};
+    @media screen and (max-width: 992px) {
+            display: none;;
+    }
 `
 
 const DarkLightModeBtn = () => {
@@ -75,8 +78,8 @@ const DarkLightModeBtn = () => {
             <div className='dark' onClick={()=>{setTheme('dark')}}>
                 <NightsStayIcon className='moon'/>
             </div>
-            <div className='light'>
-                <WbSunnyIcon className='sun' onClick={()=>{setTheme('light')}}/>
+            <div className='light' onClick={()=>{setTheme('light')}}>
+                <WbSunnyIcon className='sun'/>
             </div>
         </div>
     </OuterContainer >

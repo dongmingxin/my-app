@@ -1,5 +1,5 @@
 import styled, { StyledComponentBase, ThemeProvider } from "styled-components"
-import { useThemeContext } from '../../context/theme'
+import { useThemeContext, ThemeContextProvider } from '../../context/theme'
 import TopNav from '../navigation/TopNav'
 import DarkLightModeBtn from '../darkLightModeBtn/DarkLightModeBtn'
 
@@ -75,7 +75,7 @@ interface DefaultLayoutProps {
 	children?: React.ReactNode;
 }
 
-export const DefaultLayout = ({
+export const ThemeLayout = ({
     children
 } : DefaultLayoutProps) => {
     const { themeProps } = useThemeContext();
@@ -89,6 +89,18 @@ export const DefaultLayout = ({
                 </Layout.Container>
             </Layout>
         </ThemeProvider>
+    )
+}
+
+export const DefaultLayout = ({
+    children
+} : DefaultLayoutProps) => {
+    return (
+        <ThemeContextProvider>
+            <ThemeLayout>
+                {children}
+            </ThemeLayout>
+        </ThemeContextProvider>
     )
 }
 

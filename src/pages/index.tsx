@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 import { DefaultLayout } from '../components/layout/layout';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -25,12 +26,10 @@ const GeneralprofileContainer = styled.div`
 `;
 
 const PhotoContainer = styled.div`
-  padding: 50px 0 0 50px;
-`;
-
-const Photo = styled.img`
+  margin: 0 0 0 50px;
   width: 250px;
   height: 250px;
+  position: relative;
   border: 3px solid white;
   transition: all 0.5s linear, transform 0.5s ease-out;
   transform: translateY(10%);
@@ -39,6 +38,7 @@ const Photo = styled.img`
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.1)
   }
 `;
+
 
 const TitleContainer = styled.div`
   padding: 0 150px 0 0;
@@ -94,7 +94,6 @@ const DetailInfo = styled.div`
   flex: 1;
 `;
 
-
 const Link = styled.a`
   cursor: 'pointer';
 `;
@@ -148,7 +147,11 @@ const Home = ():JSX.Element => {
       <Container>
         <GeneralprofileContainer>
           <PhotoContainer>
-            <Photo src='/photo.png' alt="personal-photo"/>
+            <Image 
+              src='/photo.png'
+              alt="personal-photo"
+              layout="fill"
+            />
           </PhotoContainer>
           <TitleContainer>
             <Name>Mingxin Dong</Name>

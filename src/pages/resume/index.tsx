@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import styled from "styled-components";
+import Image from 'next/image';
 import getResumeInfo from "../../data/resume";
 import { Iexperience } from '../../interfaces/experience';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
 import { DefaultLayout } from '../../components/layout/layout';
 
 const ResumeWrapper = styled.div`
-  /* padding: 10px 0 0 0; */
   color: ${props => props.theme.textColorPrimary};
 `
 const ExperienceHeader = styled.div`
@@ -55,10 +55,14 @@ const HightLightListItem = styled.li`
 `
 const ProjectPreviewWrapper = styled.div`
   width: 68%;
-`
-const ProjectImg = styled.img`
-  width: 100%;
-  padding: 30px 0 20px 30px;
+  @media screen and (max-width: 992px) {
+    width: 100%;
+  }
+  .project-image {
+    position: relative;
+    height: 45vmin;
+    margin: 30px 20px 20px 30px;
+  }
 `
 
 const Link = styled.a`
@@ -113,8 +117,14 @@ const Resume = ():JSX.Element => {
           </ExperienceIntro>
           {renderHightLight("Tech Stacks & Project Hightlight",project.hightlight)}
           <ProjectPreviewWrapper>
-          {renderHightLight("Project Links:", project.projectLinks)}
-            <ProjectImg src={project.projectPreview} alt="jr-dashboard-preview"/>
+            {renderHightLight("Project Links:", project.projectLinks)}
+            <div className='project-image'>
+              <Image 
+                src={project.projectPreview} 
+                alt="project-website-preview" 
+                layout='fill'
+              />
+            </div>
           </ProjectPreviewWrapper>
         </Fragment>
       ))

@@ -36,7 +36,7 @@ const lightTheme = {
     mobileNavBgColor: '#f2f6fc',
     primaryColor: '#2eca7f',
     textColorPrimary: '#49515D',
-    textColorSecondary: '2eca7f',
+    textColorSecondary: '#2eca7f',
     textColorInBackGround: '#E7E6DD',
 }
 
@@ -48,7 +48,7 @@ export const ThemeContext = createContext<ThemeContextInterface>({
 const { Provider } = ThemeContext;
 
 
-export const ThemeProvider = ({
+export const ThemeContextProvider = ({
 	children,
 }: ThemeProviderProps) => {
 	const [theme, setTheme] = useState(()=>{

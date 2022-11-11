@@ -14,7 +14,7 @@ const getResumeInfo = () => {
             "Agile work environment",
 
         ],
-        projectPreview: 'JR_dashboard.png',
+        projectPreview: '/JR_dashboard.png',
         projectLinks: ["https://learn.jiangren.com.au/", "https://jiangren.com.au/"]
     }
 
@@ -31,7 +31,7 @@ const getResumeInfo = () => {
             "Deployed react-stripe-checkout (3.4.1) for credit card payment option",
 
         ],
-        projectPreview: 'pizzaWebsite.png',
+        projectPreview: '/pizzaWebsite.png',
         projectLinks: ["http://mp-pizza.s3-website-ap-southeast-2.amazonaws.com/pizza"],
     }
 
@@ -46,7 +46,7 @@ const getResumeInfo = () => {
             "Set up an express (express 4.17.1) server",
 
         ],
-        projectPreview: 'weatherApp.png',
+        projectPreview: '/weatherApp.png',
         projectLinks: ["http://weather-app-mingxin.s3-website-ap-southeast-2.amazonaws.com/"],
     }
 

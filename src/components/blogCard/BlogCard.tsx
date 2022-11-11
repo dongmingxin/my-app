@@ -83,7 +83,7 @@ const BlogCard = ({
             <Card className='blog-card'>
                 <div className='date'>{uploadDate}</div>
                 <div className='blog-background-wrapper'>
-                    <Image src={imageSrc} alt='blog-background' layout='fill'/>
+                    <Image src='/sidenav-bg.jpeg' alt='blog-background' layout='fill'/>
                 </div>
                 <div className='blog-title'>{title}</div>
             </Card>

@@ -5,6 +5,7 @@ import Drawer from '../drawer/Drawer';
 import Card from '../card/Card';
 import NavLink from './NavLink';
 import useCheckScrollDirection from '../../utils/useCheckScrollDirection';
+import Image from 'next/image';
 
 const TopBarContainer = styled.div`
 	position: fixed;
@@ -38,14 +39,12 @@ const SideNavContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	.bg-wrapper {
+		position: relative;
 		width: 100%;
-		img {
-			width: 100%;
-		}
+		height: 50vmin;
 	}
 	.card {
 		width: 80%;
-		height: 80px;
 		display: grid;
 		padding: 18px 15px;
 		box-sizing: border-box;
@@ -58,9 +57,7 @@ const SideNavContainer = styled.div`
 		.photo-wrapper {
 			grid-area: photo;
 			width: 50%;
-			img{
-				width: 100%;
-			}
+			position: relative;
 		}
 		.name{
 			grid-area: name;
@@ -110,11 +107,11 @@ const SideNav = () => {
 		>
 			<SideNavContainer>
 				<div className='bg-wrapper'>
-					<img src="/sidenav-bg.jpeg" alt="side-bg" />
+					<Image src="/sidenav-bg.jpeg" alt="side-bg" layout='fill'/>
 				</div>
 				<Card className='card'>
 					<div className='photo-wrapper'>
-						<img src="/photo.png" alt="photo"/>
+						<Image src="/photo.png" alt="photo" layout='fill'/>
 					</div>
 					<div className='name'>
 						Mingxin Dong
