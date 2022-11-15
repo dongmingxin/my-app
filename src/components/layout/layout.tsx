@@ -75,7 +75,7 @@ interface DefaultLayoutProps {
 	children?: React.ReactNode;
 }
 
-export const ThemeLayout = ({
+export const DefaultLayout = ({
     children
 } : DefaultLayoutProps) => {
     const { themeProps } = useThemeContext();
@@ -89,18 +89,6 @@ export const ThemeLayout = ({
                 </Layout.Container>
             </Layout>
         </ThemeProvider>
-    )
-}
-
-export const DefaultLayout = ({
-    children
-} : DefaultLayoutProps) => {
-    return (
-        <ThemeContextProvider>
-            <ThemeLayout>
-                {children}
-            </ThemeLayout>
-        </ThemeContextProvider>
     )
 }
 

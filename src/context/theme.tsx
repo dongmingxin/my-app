@@ -1,5 +1,6 @@
 import * as React from "react";
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
+import Cookies from 'js-cookie';
 
 interface ThemeProps {
     backgroundColor: string,
@@ -12,6 +13,7 @@ interface ThemeProps {
 
 interface ThemeProviderProps {
 	children?: React.ReactNode;
+    initialTheme: string;
 }
 
 
@@ -54,22 +56,16 @@ const { Provider } = ThemeContext;
 
 
 export const ThemeContextProvider = ({
-	children,
-}: ThemeProviderProps) => {
+    children,
+    initialTheme
+}:ThemeProviderProps) => {
 	const [theme, setTheme] = useState(()=>{
-        let currentTheme;
-        if(typeof window !== "undefined") {
-            currentTheme = localStorage.getItem(themeLocalStorageKey)
-        }
-        if(currentTheme) return currentTheme;
-        return defaultTheme;
+        if(initialTheme) return initialTheme;
+        return defaultTheme
     })
 
-    useEffect(()=>{
-        localStorage.setItem(themeLocalStorageKey , theme)
-    },[theme]);
-
     const changeTheme = (theme: 'dark'|'light') => {
+        Cookies.set(themeLocalStorageKey, theme, { expires: 1 })
         setTheme(theme);
     }
 
