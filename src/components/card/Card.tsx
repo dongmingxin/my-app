@@ -4,13 +4,14 @@ import styled from 'styled-components'
 const NukeCard = styled.div`
 	border-radius: 8px;
 	background-color: ${props => props.theme.cardBackgroundColor};
-	box-shadow: 0 0px 10px -5px #949494;
+	box-shadow: ${props => props.theme.cardBoxShadow};
+	color: ${props => props.theme.textColorPrimary};
 	box-sizing: border-box;
 `
 
 const CardHeader = styled.div`
 	font-weight: 700;
-	color: #2eca7f;
+	color: ${props => props.theme.textColorSecondary};
 	padding: 15px;
 	border-bottom: 1px solid ${props => props.theme.cardHeaderBorderColor};
 `

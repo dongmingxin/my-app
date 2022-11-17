@@ -12,8 +12,8 @@ const Container = styled.div`
   }
   padding: 0 0 50px 0;
   border-radius: 15px;
-  box-shadow: 0px 3px 8px 0px rgb(0 0 0 / 10%);
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${props => props.theme.cardBackgroundColor};
+  box-shadow: ${props => props.theme.cardBoxShadow};
 `
 const GeneralprofileContainer = styled.div`
   display: flex;
@@ -38,7 +38,6 @@ const PhotoContainer = styled.div`
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.1)
   }
 `;
-
 
 const TitleContainer = styled.div`
   padding: 0 150px 0 0;

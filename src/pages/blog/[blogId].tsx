@@ -11,7 +11,9 @@ const BlogWrapper = styled.div`
     background-size: 20px 20px;
     background-position: 50%;
     width: 100%;
+    min-height: 80vh;
     margin-top: 50px;
+    overflow: hidden;
 `
 const Title = styled.h1`
     font-size: 24px;
@@ -24,12 +26,18 @@ const Content = styled.div`
     font-size: 16px;
     margin-top: 50px;
     color: ${props => props.theme.textColorPrimary};
+    text-overflow: wrap;
     p {
         display: block;
         margin-block-start: 1em;
         margin-block-end: 1em;
         margin-inline-start: 0px;
         margin-inline-end: 0px;
+    }
+    @media screen and (max-width: 900px) {
+        img {
+            width: 100%;
+        }
     }
 `
 
@@ -56,8 +64,8 @@ export default Blog;
 
 export const getServerSideProps = async (context:any) => {
 
-    const { id } = context.query;
-    const { data } = await axios.get(`${baseURL}/api/blog/${id}`)
+    const { blogId } = context.query;
+    const { data } = await axios.get(`${baseURL}/api/blog/${blogId}`)
     const blog:Props = data
   
     return {

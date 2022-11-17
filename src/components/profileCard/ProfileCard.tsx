@@ -49,8 +49,7 @@ const ProfileCardWrapper = styled(Card)`
     .name {
         grid-area: name;
         text-align: center;
-        color: #2eca7f;
-        
+        color: ${props => props.theme.textColorSecondary};
     }
     .slogen {
         grid-area: slogen;

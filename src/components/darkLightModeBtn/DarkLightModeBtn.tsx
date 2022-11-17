@@ -13,6 +13,7 @@ const OuterContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
     .innerContainer {
         background: #0008;
         width: 60px;
@@ -24,9 +25,9 @@ const OuterContainer = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 0 5px;
-        @media screen and (max-width: 992px) {
+        /* @media screen and (max-width: 992px) {
             display: none;;
-        }
+        } */
         .dark {
             width: 20px;
             height: 20px;
@@ -62,9 +63,9 @@ const Cicle = styled.div`
     border-radius: 50%;
     right: 1px;
     transform: ${props => props.theme === 'dark' ? 'translateX(-105%)' : 'translateX(0%)'};
-    @media screen and (max-width: 992px) {
-            display: none;;
-    }
+    /* @media screen and (max-width: 992px) {
+        display: none;
+    } */
 `
 
 const DarkLightModeBtn = () => {

@@ -33,7 +33,8 @@ const darkTheme = {
     textColorSecondary: '#9999ff',
     textColorInBackGround: '#E7E6DD',
     cardBackgroundColor: '#232323',
-    cardHeaderBorderColor: '#414243'
+    cardHeaderBorderColor: '#414243',
+    cardBoxShadow: '1px 1px 3px 1px #1b1b1b'
 }
 const lightTheme = {
     backgroundColor: '#f5f5f5',
@@ -44,7 +45,7 @@ const lightTheme = {
     textColorInBackGround: '#E7E6DD',
     cardBackgroundColor: '#fff',
     cardHeaderBorderColor: '#ebeef5',
-    
+    cardBoxShadow: '0 0px 10px -5px #949494'
 }
 
 export const ThemeContext = createContext<ThemeContextInterface>({

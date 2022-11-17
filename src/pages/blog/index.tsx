@@ -46,6 +46,22 @@ const Container = styled.div`
     grid-area: recent-update;
     .update-blog {
       padding: 10px 15px;
+      cursor: pointer;
+      p {
+        position: relative;
+        margin: 0px;
+        display: inline-block;
+        padding-bottom:2px;
+        background-image: linear-gradient(${props => props.theme.textColorSecondary} 0 0);
+        background-position: left bottom;
+        background-size: 0% 1px;
+        background-repeat: no-repeat;
+        transition: background-size 0.5s;
+        &:hover {
+          color: ${props => props.theme.textColorSecondary};
+          background-size: 100% 1px;
+        }
+      }
     }
   }
 `
@@ -81,11 +97,11 @@ const Blogs = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <ProfileCard className='profile'/>
         <Card className='recent-update'>
           <Card.Header>最新文章</Card.Header>
-          <div className='update-blog'>Turbopack似乎并没有那么牛</div>
-          <div className='update-blog'>校验二叉树的后序遍历序列</div>
-          <div className='update-blog'>Xcode配置GitHub</div>
-          <div className='update-blog'>深入理解New操作符</div>
-          <div className='update-blog'>字符串转树结构</div>
+          <div className='update-blog'><p>Turbopack似乎并没有那么牛</p></div>
+          <div className='update-blog'><p>校验二叉树的后序遍历序列</p></div>
+          <div className='update-blog'><p>Xcode配置GitHub</p></div>
+          <div className='update-blog'><p>深入理解New操作符</p></div>
+          <div className='update-blog'><p>字符串转树结构</p></div>
         </Card>
       </Container>
     </DefaultLayout>

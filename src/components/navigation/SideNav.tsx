@@ -13,8 +13,8 @@ const TopBarContainer = styled.div`
 	top: 0;
 	right: 0;
 	height: 50px;
-	background-color: ${props => props.theme.backgroundColor};
-	box-shadow: 0 2px 10px 0 rgb(0 0 0 / 20%);
+	background-color: ${props => props.theme.cardBackgroundColor};
+	box-shadow: ${props => props.theme.cardBoxShadow};
 	transform: translateY(-100%);
 	transition: 0.35s cubic-bezier(0.8, 1, 0.8, 1);
 	z-index: 100;
@@ -30,6 +30,7 @@ const TopBarPlaceHolder = styled.div`
 const MenuWrapper = styled.div`
 	padding: 10px 10px 10px 10px;
 	.menu {
+		color: ${props => props.theme.textColorPrimary};
 		font-size: 30px;
 	}
 `
