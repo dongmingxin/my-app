@@ -4,6 +4,7 @@ import { DefaultLayout } from '../components/layout/layout';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
+import { shimmer, toBase64 } from '../components/nextImageHelper/imageHelper';
 
 const Container = styled.div`
   width: 100%;
@@ -149,7 +150,11 @@ const Home = ():JSX.Element => {
             <Image 
               src='/photo.png'
               alt="personal-photo"
-              layout="fill"
+              object-fit='fill'
+              width={250}
+              height={250}
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(250, 250))}`}
             />
           </PhotoContainer>
           <TitleContainer>

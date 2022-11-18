@@ -5,6 +5,7 @@ import getResumeInfo from "../../data/resume";
 import { Iexperience } from '../../interfaces/experience';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
 import { DefaultLayout } from '../../components/layout/layout';
+import { shimmer, toBase64 } from '../../components/nextImageHelper/imageHelper';
 
 const ResumeWrapper = styled.div`
   color: ${props => props.theme.textColorPrimary};
@@ -123,6 +124,9 @@ const Resume = ():JSX.Element => {
                 src={project.projectPreview} 
                 alt="project-website-preview" 
                 layout='fill'
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(250, 250))}`}
+                loading = 'lazy'
               />
             </div>
           </ProjectPreviewWrapper>
