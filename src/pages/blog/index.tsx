@@ -1,5 +1,5 @@
 import React from 'react'
-import { InferGetStaticPropsType, InferGetServerSidePropsType } from 'next'
+import { InferGetStaticPropsType } from 'next'
 import axios from 'axios'
 import { baseURL } from '../../services/axios'
 import styled from 'styled-components'
@@ -75,7 +75,7 @@ type blog = {
   _v: number
 }
 
-const Blogs = ({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const Blogs = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
   
   return (
     <DefaultLayout>
@@ -110,7 +110,7 @@ const Blogs = ({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>
 
 export default Blogs;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 
   const { data } = await axios.get(`${baseURL}/api/blog`);
   const blogs:Array<blog> = data;
