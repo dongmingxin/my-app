@@ -1,5 +1,21 @@
 
 const getResumeInfo = () => {
+
+    const langpoly = {
+        experienceHeader: "Experience in DigiGround",
+        experienceIntro: `software development`,
+        hightlight: [
+            "Develop Langpoly v1 and langpoly v2",
+            "internationalization tool",
+            "Frontend Stacks: React, Mui, Axios",
+            "Backend Stacks: Nodejs, Express",
+            "Use Bitbucket as the Git based code hosting and collaboration tool",
+            "Agile work environment",
+
+        ],
+        projectPreview: '/langpoly.png',
+        projectLinks: ["http://langpoly.digiground.com.au/"]
+    }
     
     const jracdamy = {
         experienceHeader: "Experience in JR Acadamy",
@@ -50,7 +66,7 @@ const getResumeInfo = () => {
         projectLinks: ["http://weather-app-mingxin.s3-website-ap-southeast-2.amazonaws.com/"],
     }
 
-    const allExperience = [jracdamy, pizza, Weather]
+    const allExperience = [langpoly, jracdamy, pizza, Weather]
 
     return allExperience
 

@@ -53,6 +53,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    overflow: hidden;
     @media screen and (max-width: 2600px) {
         width: 60%;
     }

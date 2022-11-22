@@ -145,19 +145,21 @@ const ProfileCard = ({className}:ProfileCard) => {
                     />
                 </div>
             </div>
-            <div className="name">神奇的程序员</div>
-            <div className="slogen">今天的努力只为未来</div>
+            <div className="name">Mingxin Dong</div>
+            <div className="slogen">
+                Simplicity is the soul of efficiency
+            </div>
             <div className="blogs icons">
                 <div>18</div>
-                <div>专栏数</div>
+                <div>Topics</div>
             </div>
             <div className="article icons">
                 <div>150</div>
-                <div>文章数</div>
+                <div>Blogs</div>
             </div>
             <div className="comments icons">
                 <div>78</div>
-                <div>评论数</div>
+                <div>comments</div>
             </div>
             <div className="social-links">
                 <div className="github">

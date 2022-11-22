@@ -124,9 +124,6 @@ const Resume = ():JSX.Element => {
                 src={project.projectPreview} 
                 alt="project-website-preview" 
                 layout='fill'
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(250, 250))}`}
-                loading = 'lazy'
               />
             </div>
           </ProjectPreviewWrapper>

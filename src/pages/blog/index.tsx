@@ -96,12 +96,12 @@ const Blogs = ({ blogs }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Card>
         <ProfileCard className='profile'/>
         <Card className='recent-update'>
-          <Card.Header>最新文章</Card.Header>
-          <div className='update-blog'><p>Turbopack似乎并没有那么牛</p></div>
-          <div className='update-blog'><p>校验二叉树的后序遍历序列</p></div>
-          <div className='update-blog'><p>Xcode配置GitHub</p></div>
-          <div className='update-blog'><p>深入理解New操作符</p></div>
-          <div className='update-blog'><p>字符串转树结构</p></div>
+          <Card.Header>New posts</Card.Header>
+          <div className='update-blog'><p>Turbopack</p></div>
+          <div className='update-blog'><p>Verify the post-order traversal</p></div>
+          <div className='update-blog'><p>Xcode Conif GitHub</p></div>
+          <div className='update-blog'><p>Learn New operator</p></div>
+          <div className='update-blog'><p>string to tree structure</p></div>
         </Card>
       </Container>
     </DefaultLayout>
