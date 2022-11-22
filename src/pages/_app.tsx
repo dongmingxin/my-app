@@ -1,14 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeContextProvider } from '../context/theme'
-import Head from 'next/head'
 
 function MyApp({ Component, pageProps, initialTheme}: any) {
   return (
     <ThemeContextProvider initialTheme={initialTheme}>
-      <Head>
-        <title>Ming App</title>
-      </Head>
       <Component {...pageProps} />
     </ThemeContextProvider>
   )

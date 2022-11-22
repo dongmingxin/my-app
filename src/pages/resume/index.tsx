@@ -5,7 +5,6 @@ import getResumeInfo from "../../data/resume";
 import { Iexperience } from '../../interfaces/experience';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
 import { DefaultLayout } from '../../components/layout/layout';
-import { shimmer, toBase64 } from '../../components/nextImageHelper/imageHelper';
 
 const ResumeWrapper = styled.div`
   color: ${props => props.theme.textColorPrimary};
