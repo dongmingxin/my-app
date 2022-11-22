@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Card from '../card/Card'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 const CardContainer = styled.div`
     .blog-card {
@@ -74,10 +74,7 @@ const BlogCard = ({
     return (
         <CardContainer
             onClick={()=>{
-                router.push({
-                    pathname: '/blog/[id]',
-                    query: { id: id }
-                })
+                router.push(`/blog/${id}`)
             }}
         >
             <Card className='blog-card'>

@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { DefaultLayout } from '../../components/layout/layout'
+import { DefaultLayout } from '../../../components/layout/layout'
 import { InferGetServerSidePropsType } from 'next'
 import axios from 'axios'
-import { baseURL } from '../../services/axios'
+import { baseURL } from '../../../services/axios'
 
 const BlogWrapper = styled.div`
     background-image: linear-gradient(90deg,rgba(159,219,252,.15) 3%

@@ -1,7 +1,7 @@
 import React from 'react'
-import Quill from '../../components/quill/Quill'
-import { postBlog } from '../../services/blog'
-import { DefaultLayout } from '../../components/layout/layout'
+import Quill from '../../../components/quill/Quill'
+import { postBlog } from '../../../services/blog'
+import { DefaultLayout } from '../../../components/layout/layout'
 
 const Upload = () => {
 
