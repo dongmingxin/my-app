@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Card from '../card/Card'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const CardContainer = styled.div`
     .blog-card {
