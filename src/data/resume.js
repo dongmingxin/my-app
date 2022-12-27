@@ -3,18 +3,19 @@ const getResumeInfo = () => {
 
     const langpoly = {
         experienceHeader: "Experience in DigiGround",
-        experienceIntro: `software development`,
+        experienceIntro: `Software development agent`,
         hightlight: [
-            "Develop Langpoly v1 and langpoly v2",
-            "internationalization tool",
-            "Frontend Stacks: React, Mui, Axios",
-            "Backend Stacks: Nodejs, Express",
+            "participate in commercial projects, internationalization tool development",
+            "Frontend Stacks: React, React Native",
+            "Backend Stacks: Nodejs, expressJS, sequeliz",
+            "Database: mysql, mongoDB",
+            "Other tools: AdminBron, bugTracker",
             "Use Bitbucket as the Git based code hosting and collaboration tool",
             "Agile work environment",
 
         ],
-        projectPreview: '/langpoly.png',
-        projectLinks: ["http://langpoly.digiground.com.au/"]
+        projectPreview: '/pupilovers.png',
+        projectLinks: ["https://puppilovers.com/", "https://oktion.com.au/", "http://langpoly.digiground.com.au/"]
     }
     
     const jracdamy = {
@@ -51,7 +52,7 @@ const getResumeInfo = () => {
         projectLinks: ["http://mp-pizza.s3-website-ap-southeast-2.amazonaws.com/pizza"],
     }
 
-    const Weather = {
+    const weather = {
         experienceHeader: "Weather App",
         experienceIntro: `React application allows users to search for the current weather.`,
         hightlight: [
@@ -66,7 +67,20 @@ const getResumeInfo = () => {
         projectLinks: ["http://weather-app-mingxin.s3-website-ap-southeast-2.amazonaws.com/"],
     }
 
-    const allExperience = [langpoly, jracdamy, pizza, Weather]
+    const personalWebDemo = {
+        experienceHeader: "Online Resume",
+        experienceIntro: `Styling Resume build with Next 13`,
+        hightlight: [
+            "Next(13.0.1)",
+            "tailwindcss(3.2.4)",
+            "typescript(4.9.3)",
+            "framer-motion(7.6.12)",
+        ],
+        projectPreview: '/onlineResume.png',
+        projectLinks: ["https://resume-web-iota.vercel.app/"],
+    }
+
+    const allExperience = [langpoly, jracdamy, personalWebDemo, pizza, weather]
 
     return allExperience
 

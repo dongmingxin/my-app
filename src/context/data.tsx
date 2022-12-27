@@ -24,25 +24,3 @@ export const DataContext = createContext<DataContextInterface>({
 });
 
 const { Provider } = DataContext;
-
-
-// export const ThemeContextProvider = ({
-// 	children,
-// }: DataContextProviderProps) => {
-
-    
-
-// 	return (
-// 		<Provider
-// 			value={{
-//                 blogs
-// 			}}
-// 		>
-// 			{children}
-// 		</Provider>
-// 	);
-// };
-
-// export function useThemeContext() {
-//     return useContext(ThemeContext);
-// }
