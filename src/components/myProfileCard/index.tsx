@@ -6,16 +6,20 @@ import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import useCheckMobileScreen from "../../utils/useCheckMobileScreen";
 
 const Container = styled.div`
-  width: 100%;
-  @media screen and (max-width: 768px) {
-    max-width: 90%;
-    margin: 20px 0;
-    overflow: hidden;
-  }
+  /* width: 100%; */
   padding: 0 0 50px 0;
   border-radius: 15px;
   background-color: ${props => props.theme.cardBackgroundColor};
   box-shadow: ${props => props.theme.cardBoxShadow};
+  @media screen and (max-width: 768px) {
+    max-width: 90%;
+    margin: 20px 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `
 const GeneralprofileContainer = styled.div`
   display: flex;
@@ -127,7 +131,8 @@ const materialIcon = {
 const MobileContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  width: 100%;
   .top {
     width: 100%;
     padding: 0 0 20px 0;
@@ -226,39 +231,42 @@ const MyProfileCard = () => {
             </div>
           </MobileContainer>
         ) : (
-          <><GeneralprofileContainer>
-            <PhotoContainer>
-              <Image
-                src='/photo.png'
-                alt="personal-photo"
-                object-fit="cover"
-                width={250}
-                height={250} />
-            </PhotoContainer>
-            <TitleContainer>
-              <Name>Mingxin Dong</Name>
-              <Title>Front-end Developer</Title>
-              <SocialAccountLinkContainer>
-                <Link href="https://github.com/dongmingxin" target="_blank" rel="noopener noreferrer">
-                  <GitHubIcon sx={materialIcon} />
-                </Link>
-                <Link href="https://www.linkedin.com/in/mingxin-dong/" target="_blank" rel="noopener noreferrer">
-                  <LinkedInIcon sx={materialIcon} />
-                </Link>
-                <FacebookOutlinedIcon sx={materialIcon} />
-              </SocialAccountLinkContainer>
-            </TitleContainer>
-          </GeneralprofileContainer><GeneralInformationContainer>
-              <AboutMeWrapper>
-                <AboutMeTitle>About <span>Me</span></AboutMeTitle>
-                <AboutMeIntroduction>
-                  {aboutMe}
-                </AboutMeIntroduction>
-              </AboutMeWrapper>
-              <DetailInfo>
-                {detailInfoList.map(i => renderDetailInfo(i.title, i.info))}
-              </DetailInfo>
-            </GeneralInformationContainer></>
+          <>
+            <GeneralprofileContainer>
+              <PhotoContainer>
+                <Image
+                  src='/photo.png'
+                  alt="personal-photo"
+                  object-fit="cover"
+                  width={250}
+                  height={250} />
+              </PhotoContainer>
+              <TitleContainer>
+                <Name>Mingxin Dong</Name>
+                <Title>Front-end Developer</Title>
+                <SocialAccountLinkContainer>
+                  <Link href="https://github.com/dongmingxin" target="_blank" rel="noopener noreferrer">
+                    <GitHubIcon sx={materialIcon} />
+                  </Link>
+                  <Link href="https://www.linkedin.com/in/mingxin-dong/" target="_blank" rel="noopener noreferrer">
+                    <LinkedInIcon sx={materialIcon} />
+                  </Link>
+                  <FacebookOutlinedIcon sx={materialIcon} />
+                </SocialAccountLinkContainer>
+              </TitleContainer>
+            </GeneralprofileContainer>
+            <GeneralInformationContainer>
+                <AboutMeWrapper>
+                  <AboutMeTitle>About <span>Me</span></AboutMeTitle>
+                  <AboutMeIntroduction>
+                    {aboutMe}
+                  </AboutMeIntroduction>
+                </AboutMeWrapper>
+                <DetailInfo>
+                  {detailInfoList.map(i => renderDetailInfo(i.title, i.info))}
+                </DetailInfo>
+              </GeneralInformationContainer>
+            </>
         )}
       </Container>
   )

@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from "styled-components";
 import Image from 'next/image';
 import getResumeInfo from "../../data/resume";
 import { Iexperience } from '../../interfaces/experience';
 import CircleTwoToneIcon from '@mui/icons-material/CircleTwoTone';
 import { DefaultLayout } from '../../components/layout/layout';
-import { shimmer, toBase64 } from '../../components/nextImageHelper/imageHelper';
+import { motion } from "framer-motion";
+import Anchor from '../../components/anchor/Anchor';
 
 const ResumeWrapper = styled.div`
   color: ${props => props.theme.textColorPrimary};
@@ -66,13 +67,14 @@ const ProjectPreviewWrapper = styled.div`
   }
 `
 
-const Link = styled.a`
+const ProjectLink = styled.a`
   cursor: 'pointer';
   text-decoration: none;
   color: ${props => props.theme.textColorPrimary};
 `;
   
 const Resume = ():JSX.Element => {
+
   const resumeInfo = getResumeInfo();
 
   const renderHightLight = (title:string, lists:string[]) => {
@@ -83,7 +85,7 @@ const Resume = ():JSX.Element => {
             item
           )
       }
-      return <Link href={item} target="_blank" rel="project-link">{item}</Link>
+      return <ProjectLink href={item} target="_blank" rel="project-link">{item}</ProjectLink>
     }
     return (
       <Highlight>
@@ -109,7 +111,14 @@ const Resume = ():JSX.Element => {
   const renderResume = () => {
     return (
       resumeInfo.map((project:Iexperience, index) =>(
-        <Fragment key={index}>
+        <motion.div
+          initial={{ opacity: 0, y: 75 }}
+          transition={{ ease: "easeOut", duration: 0.8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          key={index}
+          id={`project${index}`}
+        >
           <ExperienceHeader>
             {project.experienceHeader}
           </ExperienceHeader>
@@ -119,15 +128,20 @@ const Resume = ():JSX.Element => {
           {renderHightLight("Tech Stacks & Project Hightlight",project.hightlight)}
           <ProjectPreviewWrapper>
             {renderHightLight("Project Links:", project.projectLinks)}
-            <div className='project-image'>
+            <motion.div 
+              className='project-image'
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ ease: "easeOut", duration: 4 }}
+            >
               <Image 
                 src={project.projectPreview} 
                 alt="project-website-preview" 
                 layout='fill'
               />
-            </div>
+            </motion.div>
           </ProjectPreviewWrapper>
-        </Fragment>
+        </motion.div>
       ))
     )
   }
@@ -136,6 +150,7 @@ const Resume = ():JSX.Element => {
     <DefaultLayout>
       <ResumeWrapper>
         {renderResume()}
+        <Anchor/>
       </ResumeWrapper>
     </DefaultLayout>
   )
