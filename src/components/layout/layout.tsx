@@ -48,12 +48,10 @@ const Layout:ILayout = styled.div`
 
 
 const Container = styled.div`
-    /* margin-bottom: 10px; */
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    overflow: hidden;
     @media screen and (max-width: 2600px) {
         width: 60%;
     }

@@ -9,10 +9,11 @@ const Anchorbar = styled.div`
   position: fixed;
   top:30%;
   right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 4px;
   box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
   z-index: 1;
   background-color: ${props => props.theme.backgroundColor};
@@ -34,6 +35,14 @@ const Anchorbar = styled.div`
       color: ${props => props.theme.textColorPrimary};
       text-decoration: none;
     }
+  }
+  .back-to-top {
+    width: 100%;
+    padding: 10px 0;
+    color: black;
+    text-align: center;
+    background-color: ${props => props.theme.primaryColor};
+    cursor: pointer;
   }
 
 `
@@ -60,6 +69,13 @@ const Anchor = () => {
         <Link className='project' href='#project4' scroll={false}>
           Weather App
         </Link>
+      </div>
+      <div className="back-to-top" onClick={()=>{window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        });}}>
+        Back To Top
       </div>
     </Anchorbar>
   )
